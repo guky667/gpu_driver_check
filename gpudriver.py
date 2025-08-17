@@ -1,3 +1,21 @@
+# Update psid and pfid for your specific card - also you can change the OS version and language if needed; detailed instructions in the ReadMe
+url = (
+    "https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php?func=DriverManualLookup"
+    "&psid=131"          # Family (series, like 50)
+    "&pfid=1068"         # Model (like 5070Ti)
+    "&osID=135"          # Win11
+    "&languageCode=1033" # English US
+    "&beta=0"            # No beta drivers
+    "&isWHQL=1"          # WHQL cert for Windows from Microsoft
+    "&dltype=-1"
+    "&dch=1"             # Lightweight modular driver (just driver, without nVidia App or other auxiliary components)
+    "&upCRD=0"           # Something about CUDA, I think...
+    "&qnf=0"
+    "&ctk=null"          # Something else about CUDA, idk, man!
+    "&sort1=1"
+    "&numberOfResults=1"
+)
+
 """
 NVIDIA Driver Update Notifier (winotify version)
 Author: Gemini LLM + ChatGPT
@@ -22,6 +40,7 @@ TARGET_FILE = "DisplayDriver.nvi"
 local_version: str | None = None
 online_version: str | None = None
 driver_id: str | None = None
+
 
 def show_driver_update_toast(local_version: str, online_version: str, driver_id: str) -> None:
     download_url = f"https://www.nvidia.com/en-us/drivers/details/{driver_id}/"
@@ -76,12 +95,6 @@ try:
                     local_version = match.group(1)
 
     if local_version:
-        url = (
-            "https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/"
-            "services/AjaxDriverService.php?func=DriverManualLookup&psid=120"
-            "&pfid=942&osID=57&languageCode=1033&beta=0&isWHQL=1&dltype=-1"
-            "&dch=1&upCRD=0&qnf=0&ctk=null&sort1=1&numberOfResults=1"
-        )
         response = requests.get(url)
         data = response.json()
 
