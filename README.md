@@ -9,4 +9,4 @@ https://gfwsl.geforce.com/nvidia_web_services/controller.php?com.nvidia.services
 
 This will check for Game-Ready WHQL non-beta drivers for Win11.  
 If you're looking for another OS the fifth array [4] in either responses will give you the right OS ID (57 for Win10, 135 for Win11, 12 for Linux, etc.)  
-The language ID is set to 1033 by default, for English US
+The language ID is set to 1033 by default, for English US (found in the sixth [5] array)
