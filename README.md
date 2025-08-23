@@ -3,7 +3,8 @@ Basic vibe coding of a simple python script that checks your local nVidia GPU dr
 # To get the specific psid and pfid:
 - Navigate to [this URL](https://gfwsl.geforce.com/nvidia_web_services/controller.php?com.nvidia.services.Drivers.getMenuArrays/{"pt":1,"driverType":"all"}) and read the response .json 
 - The second array (denoted as [1]) contains the family IDs; find your series and add the ID to the URL above. This example uses pst=131 for the 50 series/family of cards, like the 5070Ti, for example:  
-https://gfwsl.geforce.com/nvidia_web_services/controller.php?com.nvidia.services.Drivers.getMenuArrays/{"pt":1,"pst":131,"driverType":"all"} 
+https://gfwsl.geforce.com/nvidia_web_services/controller.php?com.nvidia.services.Drivers.getMenuArrays/{"pt":1,"pst":131,"driverType":"all"}
+Replace the 131 from this example URL with your specific GPU series' ID and go to that URL
 - In the third array ([2]) you will find the specific model ID, for example 1068 for the 5070Ti
 - At the beggining of the script update the psid with your family ID (131 in our example) and the pfid (1068 in our example) to find drivers for your specific card
 
